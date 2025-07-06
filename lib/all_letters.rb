@@ -8,4 +8,10 @@
 #  "A wizard's job is to vex chumps quickly in fog." => true
 #  "Here are some letters missing" => false
 
-def all_letters?(sentence); end
+def all_letters?(sentence)
+  # Convert to lowercase
+  sentence = sentence.downcase
+  
+  # check if all letters from the alphabet are in the sentence
+  ('a'..'z').all? { |letter| sentence.include?(letter) }
+end

@@ -14,4 +14,7 @@
 #    FalseClass => [false, false]
 #  }
 
-def class_objects(elements); end
+def class_objects(elements)
+  # Group elements by their class and convert
+  elements.group_by(&:class)
+end

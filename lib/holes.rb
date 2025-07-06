@@ -15,4 +15,22 @@
 #   8   |   2
 #   9   |   1
 
-def holes(number); end
+def holes(number)
+  # converting the number to a string for easy iteration
+  number.to_s.chars.reduce(0) do |count, digit|
+    # count the holes based on the digit
+    count + case digit
+            when '0' then 1
+            when '1' then 0
+            when '2' then 0
+            when '3' then 0
+            when '4' then 1
+            when '5' then 0
+            when '6' then 1
+            when '7' then 0
+            when '8' then 2
+            when '9' then 1
+            else 0 
+          end
+  end
+end
