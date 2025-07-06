@@ -16,7 +16,7 @@ jobs:
     timeout-minutes: 5
     strategy:
       matrix:
-        ruby-version: ['3.0']
+        ruby-version: ['3.3']
     steps:
     - uses: actions/checkout@v2
     - name: Set up Ruby
