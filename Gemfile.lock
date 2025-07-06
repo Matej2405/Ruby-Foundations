@@ -64,7 +64,8 @@ GEM
     unicode-emoji (4.0.4)
 
 PLATFORMS
-  x64-mingw-ucrt
+  x64-mingw32
+  x64-unknown
 
 DEPENDENCIES
   overcommit
@@ -74,7 +75,7 @@ DEPENDENCIES
   rubocop-rspec
 
 RUBY VERSION
-   ruby 3.4.4p34
+   ruby 2.7.8p225
 
 BUNDLED WITH
    2.6.9
