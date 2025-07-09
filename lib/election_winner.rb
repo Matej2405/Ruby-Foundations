@@ -9,22 +9,6 @@
 # winner is 'Zach'
 
 def election_winner(votes);
-  # count the votes for each candidate
-  vote_count = Hash.new(0)
-  votes.each do |vote|
-    vote_count[vote] += 1
-  end
-
-  # find the max of votes
-  max_votes = vote_count.values.max
-
-  # find the candidate with the max votes
-  winners = vote_count.select { |candidate, count| count == max_votes}
-
-  # sort the winners in descending order
-  sorted_winners = winners.keys.sort.reverse
-
-  # return the first candidate in the sorted list
-  sorted_winners.first
-  
+  # one liner solution
+  votes.tally.max_by { |name, count| [count, name] }[0]
 end

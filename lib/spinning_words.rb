@@ -9,13 +9,9 @@
 
 def spinning_words(sentence) 
   #split the sentence into wordsa
-  words = sentence.split(' ')
+  words = sentence.split()
   # map each word to its reversed version if the word has more than 5 letters
   words.map do |word|
-    if word.length >= 5
-      word.reverse
-    else
-      word
-    end
+    word.length >= 5 ? word.reverse : word
   end.join(' ')
   end

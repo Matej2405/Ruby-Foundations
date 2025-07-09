@@ -5,28 +5,25 @@
 # Examples:
 #   a    -> 1a
 #   aa   -> 2a
-#   aabb -> 2a2b
+#   aabb -> 2a2b  'aa4b' = ['a','a','4','b']
+#   aab  -> 2a1b
+#   aaab -> 3a1b
+#   ab   -> 1a1b
+#   aaaabbbcc -> 4a3b2c 
+#   aabbcc -> 2a2b2c
+#   abc  -> 1a1b1c
+#   aabbccdd -> 2a2b2c2d
+#   abcd -> 1a1b1c1d
 #   abc  -> 1a1b1c
 
 def compress(input_stream)
-  #check if the stream is empty
+  # chekc if the stream is empty
   return '' if input_stream.empty?
-
-  result = []
-  current_char = input_stream[0]
-  count = 1
-  # iterate through the input stream(three dots mean that the we are not considering the last element)
-  (1...input_stream.length).each do |i|
-    if input_stream[i] == current_char
-      count += 1
-    else
-      result << "#{count}#{current_char}"
-      current_char = input_stream[i]
-      count = 1
-    end
-  end
-
-  result << "#{count}#{current_char}"
-  result.join
-  
+  # first convert the string into a array of chars
+  # second use the chunk method to group the same characters together
+  # third map the grouped characters to a string with the format "number + character"
+  # fourth join the array of strings into a single string
+  input_stream.chars.chunk(&:itself).map do |char, occurunces|
+      "#{occurunces.size}#{char}"
+  end.join('')
 end
