@@ -17,4 +17,30 @@
 # character(eg. "krpa krpa sava sava") and it should return a string where each word is converted to
 # Satrovacki slang.
 
-def shatro(sentence); end
+def shatro(sentence)
+  vowels = /[aeiouy]/i
+  # split the sentence into words
+  words = sentence.split(' ')
+  
+  # map each word to its ŠATRO representation
+  words.map do |w|
+    # if the word is less than 3 chars long return it immediately
+    next w if w.length < 3
+
+    # find the index of the first vowel in the word
+    first_vowel_match = w.match(vowels)
+
+    # if no vowel, return the word
+    next w if first_vowel_match.nil?
+
+    # get the index from the match
+    first_vowel_index = first_vowel_match.begin(0)
+
+    # split the word into 2 parts (split AFTER the first vowel)
+    first_part = w[0..first_vowel_index] 
+    second_part = w[first_vowel_index + 1..-1] 
+
+    # reverse the order of the parts
+    "#{second_part}#{first_part}"
+  end.join(' ')
+end
