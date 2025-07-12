@@ -8,5 +8,5 @@
 #Recursive solution
  def sum_digits(number)
    return number if number < 10
-   sum_digits(number.to_s.chars.map(&:to_i).sum)
+   sum_digits(number.digits.sum)
  end
